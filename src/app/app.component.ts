@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core'
+import { Component, OnInit,NO_ERRORS_SCHEMA } from '@angular/core'
 import { NavigationEnd, Router } from '@angular/router'
 import { RouterExtensions } from '@nativescript/angular'
 import {
@@ -12,7 +12,11 @@ import { Application } from '@nativescript/core'
 @Component({
   selector: 'ns-app',
   templateUrl: 'app.component.html',
+  standalone: true,
+  imports: [NativeScriptCommonModule],
+  schemas: [NO_ERRORS_SCHEMA]
 })
+  
 export class AppComponent implements OnInit {
   private _activatedUrl: string
   private _sideDrawerTransition: DrawerTransitionBase

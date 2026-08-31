@@ -1,0 +1,5 @@
+<ActionBar title="Productos"></ActionBar>
+<StackLayout>
+  <Label [text]="plataforma" class="titulo"></Label>
+  <Label *ngFor="let item of productos" [text]="item"></Label>
+</StackLayout>
