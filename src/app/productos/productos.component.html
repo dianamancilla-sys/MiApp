@@ -1,5 +1,12 @@
-<ActionBar title="Productos"></ActionBar>
-<StackLayout>
-  <Label text="{{ plataforma }}" class="titulo"></Label>
-  <Label *ngFor="let item of productos" text="{{ item }}"></Label>
+<ActionBar class="action-bar">
+    <NavigationButton visibility="hidden"></NavigationButton>
+    <GridLayout columns="50, *">
+        <Label class="action-bar-title" text="Productos" colSpan="2"></Label>
+        <Label class="fas" text="&#xf0c9;" (tap)="onDrawerButtonTap()"></Label>
+    </GridLayout>
+</ActionBar>
+
+<StackLayout class="page__content">
+    <Label text="{{ plataforma }}" class="h2 text-center"></Label>
+    <Label *ngFor="let item of productos" text="{{ item }}" class="p-10"></Label>
 </StackLayout>
