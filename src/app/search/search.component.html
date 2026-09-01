@@ -1,33 +1,15 @@
-<ActionBar class="action-bar">
-  <NavigationButton visibility="hidden"></NavigationButton>
-  <GridLayout columns="50, *">
-    <Label class="action-bar-title" text="Search" colSpan="2"></Label>
+<ActionBar [title]="'Hola ' + usuario"></ActionBar>
+<StackLayout padding="10">
+  <TextField hint="Buscar producto" [(ngModel)]="busqueda"></TextField>
+  <Button text="Buscar" (tap)="buscar()" class="-primary"></Button>
 
-    <Label class="fas" text="&#xf0c9;" (tap)="onDrawerButtonTap()"></Label>
-  </GridLayout>
-</ActionBar>
-
-<GridLayout class="page__content">
-  <StackLayout>
-    <!-- 6. Two-way binding [()] -->
-    <TextField [(ngModel)]="busqueda" hint="Buscar..."></TextField>
-
-    <!-- 1. ListView con FlexboxLayout anidado / 3. pull to refresh / 2. itemTap para detalle -->
-    <ListView [items]="productosFiltrados" (itemTap)="verDetalle($event)" pullToRefresh="true" (pullToRefreshInitiated)="onPull($event)" height="80%">
-      <ng-template let-item="item">
-        <FlexboxLayout flexDirection="row" padding="10" class="list-group-item">
-          <Label text="&#xf02b;" class="fas" fontSize="20" width="40"></Label>
-          <FlexboxLayout flexDirection="column">
-            <Label [text]="item.nombre" fontSize="16"></Label>
-            <Label [text]="item.categoria" fontSize="12"></Label>
-            <!-- 4. action dialog -->
-            <Button text="Cambiar categoría" (tap)="cambiarCategoria(item)" fontSize="10"></Button>
-          </FlexboxLayout>
-        </FlexboxLayout>
-      </ng-template>
-    </ListView>
-
-    <!-- 8. gesto + 9. animación -->
-    <Label text="Haz doble tap para animar ⭐" (doubleTap)="animar($event)" class="h3 text-center p-10" backgroundColor="#efefef"></Label>
-  </StackLayout>
-</GridLayout>
+  <ListView [items]="productos" height="500">
+    <ng-template let-item="item">
+      <GridLayout columns="*, auto, auto" padding="10">
+        <Label [text]="item.nombre" col="0"></Label>
+        <Label text="&#xf004;" class="fas" col="1" (tap)="favorito(item)" marginRight="15"></Label>
+        <Label text="Leer" col="2" (tap)="leerAhora(item)" color="blue"></Label>
+      </GridLayout>
+    </ng-template>
+  </ListView>
+</StackLayout>

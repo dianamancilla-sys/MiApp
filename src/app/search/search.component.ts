@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { RadSideDrawer } from 'nativescript-ui-sidedrawer';
-import { Application } from '@nativescript/core';
-import { RouterExtensions } from '@nativescript/angular';
+import { SearchService } from './search.service';
+import * as AppSettings from '@nativescript/core/application-settings';
+import { Store } from '../store';
 
 @Component({
   selector: "Search",
@@ -9,21 +9,28 @@ import { RouterExtensions } from '@nativescript/angular';
 })
 export class SearchComponent implements OnInit {
   busqueda = "";
-  productos = [
-    { nombre: "Manzana", categoria: "Fruta" },
-    { nombre: "Pan", categoria: "Panaderia" }
-  ];
+  productos: any[] = [];
+  usuario = "";
 
-  constructor(private router: RouterExtensions) {}
+  constructor(private searchService: SearchService, private store: Store) {}
 
-  ngOnInit(){}
-
-  get productosFiltrados(){
-    return this.productos.filter(p => p.nombre.toLowerCase().includes(this.busqueda.toLowerCase()));
+  ngOnInit() {
+    this.usuario = AppSettings.getString("usuario", "Diana");
+    this.buscar();
   }
 
-  onDrawerButtonTap(): void {
-    const sideDrawer = <RadSideDrawer>Application.getRootView();
-    sideDrawer.showDrawer();
+  buscar() {
+    this.searchService.buscar(this.busqueda).subscribe(data => {
+      this.productos = data;
+    });
+  }
+
+  favorito(item: any) {
+    this.searchService.guardarFavorito(item);
+  }
+
+  leerAhora(item: any) {
+    this.store.dispatch({ type: 'LEER_AHORA', payload: item });
+    alert(item.nombre + " agregado a Leer ahora");
   }
 }

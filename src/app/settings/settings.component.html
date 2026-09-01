@@ -1,12 +1,7 @@
-<ActionBar class="action-bar">
-    <NavigationButton visibility="hidden"></NavigationButton>
-    <GridLayout columns="50, *">
-        <Label class="action-bar-title" text="Settings" colSpan="2"></Label>
-        <Label class="fas" text="&#xf0c9;" (tap)="onDrawerButtonTap()"></Label>
-    </GridLayout>
-</ActionBar>
-
-<GridLayout class="page__content">
-    <Label class="page__content-icon fas" text="&#xf013;"></Label>
-    <Label class="page__content-placeholder" text="Page content goes here"></Label>
-</GridLayout>
+<ActionBar title="Settings"></ActionBar>
+<StackLayout padding="20">
+  <Label text="Editar nombre" fontSize="20" fontWeight="bold"></Label>
+  <TextField hint="Escribe tu nombre" [(ngModel)]="usuario" class="input"></TextField>
+  <Button text="Guardar" (tap)="guardar()" class="-primary" marginTop="15"></Button>
+  <Label [text]="'Guardado: ' + usuario" marginTop="20"></Label>
+</StackLayout>
