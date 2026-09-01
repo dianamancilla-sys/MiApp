@@ -1,0 +1,1 @@
+export const Config = { apiUrl: "https://abc123.ngrok.io" };
