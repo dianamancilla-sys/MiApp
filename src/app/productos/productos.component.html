@@ -9,4 +9,5 @@
 <StackLayout class="page__content">
     <Label text="{{ plataforma }}" class="h2 text-center"></Label>
     <Label *ngFor="let item of productos" text="{{ item }}" class="p-10"></Label>
+    <Button text="Compartir" (tap)="compartir()" class="btn btn-primary" marginTop="20"></Button>
 </StackLayout>

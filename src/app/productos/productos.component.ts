@@ -1,7 +1,7 @@
 import { Component, OnInit, NO_ERRORS_SCHEMA } from '@angular/core';
 import { NativeScriptCommonModule } from '@nativescript/angular';
 import { Application } from '@nativescript/core';
-
+import * as SocialShare from "@nativescript/social-share";
 @Component({
   selector: 'Productos',
   templateUrl: './productos.component.html',
@@ -21,5 +21,7 @@ export class ProductosComponent implements OnInit {
     if (sideDrawer && sideDrawer.showDrawer) {
       sideDrawer.showDrawer();
     }
+    compartir(): void {
+    SocialShare.shareText("Mira este producto de MiApp!", "Compartir");
   }
 }
