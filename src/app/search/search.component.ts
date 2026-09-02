@@ -33,7 +33,7 @@ export class SearchComponent implements OnInit {
     this.store.dispatch({ type: 'LEER_AHORA', payload: item });
     alert(item.nombre + " agregado a Leer ahora");
   }
-}  tomarFoto() {
+ tomarFoto() {
     camera.requestPermissions().then(() => {
       camera.takePicture().then((imageAsset) => {
         alert("Foto tomada!");
