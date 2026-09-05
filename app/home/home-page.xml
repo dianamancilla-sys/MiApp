@@ -1,10 +1,12 @@
-<Page navigatingTo="onNavigatingTo" xmlns="http://schemas.nativescript.org/tns.xsd">
-    
-    <ActionBar>
-        <Label text="Home" />
-    </ActionBar>
-
-    <GridLayout>
-        <!-- Add your page content here -->
-    </GridLayout>
+<Page navigatingTo="onNavigatingTo" xmlns="http://schemas.nativescript.org/tns.xsd" xmlns:maps="@nativescript/google-maps">
+    <ScrollView>
+        <StackLayout padding="20">
+            <Label id="tokenLabel" text="Token aqui" textWrap="true"/>
+            <Button text="Foto" tap="onTakePhoto" marginTop="20"/>
+            <Image id="miFoto" height="200"/>
+            <Button text="Compartir Texto" tap="onShareText"/>
+            <Button text="Compartir Foto" tap="onShareImage"/>
+            <maps:MapView mapReady="onMapReady" height="300" marginTop="20"/>
+        </StackLayout>
+    </ScrollView>
 </Page>

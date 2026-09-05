@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "123611673537",
+    "project_id": "miapp-diana",
+    "storage_bucket": "miapp-diana.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:123611673537:android:9775066ee6a1776e6a7540",
+        "android_client_info": {
+          "package_name": "org.nativescript.MiApp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCsFkvseShOrpT1cb6eAniS_I0PqygQRcE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
